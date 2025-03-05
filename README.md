@@ -44,3 +44,7 @@ Based on the project files, the following resources and libraries are used:
    3)  3) It demonstrates data visualization techniques using matplotlib to compare actual vs predicted premiums
    4) It showcases model evaluation by splitting data into training and testing sets
    5) It serves as a learning tool for understanding the relationship between age and insurance premiums in a simplified context.
+  
+  OUTPUT : 
+
+  ![Image](https://github.com/user-attachments/assets/48ed33f7-3294-49bb-99c0-f65d7855e55f)
