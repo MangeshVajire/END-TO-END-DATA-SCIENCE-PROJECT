@@ -1,0 +1,38 @@
+# Insurance Pricing Forecast
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+# Generate synthetic data
+np.random.seed(0)
+data_size = 1000
+age = np.random.randint(18, 65, data_size)
+base_premium = 500
+premium = base_premium + (age * 10) + np.random.normal(0, 50, data_size)
+
+# Create DataFrame
+df = pd.DataFrame({'Age': age, 'Premium': premium})
+
+# Split the data
+X = df[['Age']]
+y = df['Premium']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train the model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Make predictions
+predictions = model.predict(X_test)
+
+# Plot results
+plt.scatter(X_test, y_test, color='blue', label='Actual Premiums')
+plt.scatter(X_test, predictions, color='red', label='Predicted Premiums')
+plt.title('Insurance Premium Forecast')
+plt.xlabel('Age')
+plt.ylabel('Premium')
+plt.legend()
+plt.show()
